@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shruti Manish Chautmal - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(102, 126, 234, 0.95);
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Header/Hero Section */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-name {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .profile-title {
+            font-size: 1.5em;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            font-size: 1.1em;
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #667eea;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 35px;
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .current-pursuit {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border: 2px solid #667eea;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .current-pursuit-title {
+            font-size: 1.5em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .current-pursuit-content {
+            font-size: 1.2em;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .education-item {
+            margin-bottom: 25px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.1);
+        }
+
+        .degree-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .institution {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .marks {
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .skill-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .skill-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            color: #666;
+            line-height: 2.2;
+            font-size: 1.05em;
+        }
+
+        .skill-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Competencies */
+        .competency-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .competency-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            align-items: flex-start;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .competency-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .competency-icon {
+            font-size: 3em;
+            flex-shrink: 0;
+        }
+
+        .competency-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .competency-item p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        /* Interests */
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .interest-tag {
+            background: #667eea;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: default;
+        }
+
+        .interest-tag:hover {
+            transform: scale(1.08);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #764ba2;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(118, 75, 162, 0.2);
+        }
+
+        .project-card h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        /* Achievements */
+        .achievement-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .achievement-item {
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .achievement-item .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .achievement-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.15em;
+        }
+
+        .achievement-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-section .section-title {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-method h4 {
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .contact-method p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 16px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            border-top: 3px solid #667eea;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            margin: 30px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header {
+                padding: 50px 20px;
+                min-height: auto;
+            }
+
+            .profile-name {
+                font-size: 2.2em;
+            }
+
+            .profile-title {
+                font-size: 1.1em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section {
+                padding: 25px 20px;
+                margin-bottom: 30px;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">SMC Portfolio</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home">
+        <img src="WhatsApp Image 2026-04-29 at 11.45.37 AM.jpeg" alt="Shruti Manish Chautmal" class="profile-image">
+        <div class="profile-name">Shruti Manish Chautmal</div>
+        <div class="profile-title">B.Tech Student | Computer Science Enthusiast</div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span>
+                <span>shrutichautmal06@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span>📱</span>
+                <span>9657095674</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container content">
+        <!-- Education Section -->
+        <section class="section" id="education">
+            <h2 class="section-title">🎓 Education</h2>
+
+            <div class="current-pursuit">
+                <div class="current-pursuit-title">Currently Pursuing</div>
+                <div class="current-pursuit-content">
+                    <strong>B.Tech in Computer Science & Engineering</strong> - 3rd Year<br>
+                    Eknathrao Dhakane Engineering College, Shevgaon
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree-title">Diploma in Computer Science</div>
+                <div class="institution">Marathwada Institute of Engineering</div>
+                <div class="marks">📊 Percentage: 82.59%</div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree-title">Secondary School Certificate (SSC)</div>
+                <div class="marks">📊 Percentage: 86.60%</div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section">
+            <h2 class="section-title">👋 About Me</h2>
+            <p style="color: #666; line-height: 1.9; font-size: 1.05em;">
+                I am a dedicated and ambitious B.Tech student in Computer Science & Engineering with a strong academic foundation 
+                established through my SSC and Diploma qualifications. My consistent academic performance (SSC: 86.60%, Diploma: 82.59%) 
+                reflects my commitment to excellence. I am passionate about technology, software development, and solving complex 
+                problems. With a keen interest in emerging technologies like AI, web development, and cloud computing, 
+                I am eager to apply my theoretical knowledge to real-world projects and make meaningful contributions 
+                to the IT industry.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <h2 class="section-title">💻 Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>✓ C</li>
+                        <li>✓ C++</li>
+                        <li>✓ Java</li>
+                        <li>✓ Python</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Web Technologies</h3>
+                    <ul>
+                        <li>✓ HTML & CSS</li>
+                        <li>✓ JavaScript</li>
+                        <li>✓ Responsive Design</li>
+                        <li>✓ Web Development Basics</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Databases & Tools</h3>
+                    <ul>
+                        <li>✓ SQL</li>
+                        <li>✓ MySQL</li>
+                        <li>✓ Data Structures & Algorithms</li>
+                        <li>✓ Version Control (Git)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competencies Section -->
+        <section class="section">
+            <h2 class="section-title">🎯 Core Competencies</h2>
+            <div class="competency-list">
+                <div class="competency-item">
+                    <span class="competency-icon">💡</span>
+                    <div>
+                        <h4>Problem Solving</h4>
+                        <p>Strong analytical and logical thinking skills with ability to break down complex problems and find efficient solutions</p>
+                    </div>
+                </div>
+
+                <div class="competency-item">
+                    <span class="competency-icon">🔧</span>
+                    <div>
+                        <h4>Software Development</h4>
+                        <p>Full-stack development fundamentals and coding best practices with focus on clean and maintainable code</p>
+                    </div>
+                </div>
+
+                <div class="competency-item">
+                    <span class="competency-icon">📊</span>
+                    <div>
+                        <h4>Data Structures & Algorithms</h4>
+                        <p>Proficient in designing and implementing efficient data structures and algorithms for optimal performance</p>
+                    </div>
+                </div>
+
+                <div class="competency-item">
+                    <span class="competency-icon">👥</span>
+                    <div>
+                        <h4>Collaboration</h4>
+                        <p>Team-oriented mindset with excellent communication and interpersonal skills for effective teamwork</p>
+                    </div>
+                </div>
+
+                <div class="competency-item">
+                    <span class="competency-icon">🚀</span>
+                    <div>
+                        <h4>Quick Learner</h4>
+                        <p>Ability to grasp new concepts and technologies quickly and apply them effectively in projects</p>
+                    </div>
+                </div>
+
+                <div class="competency-item">
+                    <span class="competency-icon">📱</span>
+                    <div>
+                        <h4>Adaptability</h4>
+                        <p>Flexible and adaptable to different work environments and emerging technologies</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Interests -->
+        <section class="section">
+            <h2 class="section-title">🌟 Academic Interests</h2>
+            <div class="interest-tags">
+                <span class="interest-tag">Web Development</span>
+                <span class="interest-tag">Artificial Intelligence</span>
+                <span class="interest-tag">Machine Learning</span>
+                <span class="interest-tag">Database Management</span>
+                <span class="interest-tag">Software Engineering</span>
+                <span class="interest-tag">Cloud Computing</span>
+                <span class="interest-tag">Data Science</span>
+                <span class="interest-tag">Cybersecurity</span>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <h2 class="section-title">💼 Academic Projects & Coursework</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h4>Data Structures Implementation</h4>
+                    <p>Implemented various data structures including linked lists, stacks, queues, trees, and graphs with 
+                    complete operations and complexity analysis.</p>
+                </div>
+
+                <div class="project-card">
+                    <h4>Database Management System</h4>
+                    <p>Designed and developed database systems with SQL queries, normalization techniques, and optimization 
+                    strategies for efficient data retrieval.</p>
+                </div>
+
+                <div class="project-card">
+                    <h4>Web Development Projects</h4>
+                    <p>Created responsive websites using HTML, CSS, and JavaScript with focus on user interface design 
+                    and excellent user experience.</p>
+                </div>
+
+                <div class="project-card">
+                    <h4>Algorithm Analysis</h4>
+                    <p>Analyzed and implemented various algorithms including sorting, searching, and graph algorithms 
+                    with detailed performance metrics.</p>
+                </div>
+
+                <div class="project-card">
+                    <h4>Object-Oriented Programming</h4>
+                    <p>Developed applications using OOP principles with Java and C++, focusing on design patterns 
+                    and clean code practices.</p>
+                </div>
+
+                <div class="project-card">
+                    <h4>System Design & Architecture</h4>
+                    <p>Learned system architecture, design patterns, and best practices for building scalable 
+                    and maintainable software applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="section">
+            <h2 class="section-title">🏆 Achievements & Highlights</h2>
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <div class="icon">📚</div>
+                    <h4>Strong Academic Record</h4>
+                    <p>Consistent high marks throughout SSC, Diploma, and B.Tech studies</p>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="icon">🎓</div>
+                    <h4>Diploma Excellence</h4>
+                    <p>Achieved 82.59% in Diploma Computer Science from Marathwada Institute</p>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="icon">💻</div>
+                    <h4>Technical Knowledge</h4>
+                    <p>Strong foundation in core computer science concepts and programming fundamentals</p>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="icon">🚀</div>
+                    <h4>Continuous Learning</h4>
+                    <p>Actively pursuing new technologies and expanding technical skill set</p>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="icon">🎯</div>
+                    <h4>Goal-Oriented</h4>
+                    <p>Clear career objectives focused on software development and IT industry</p>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="icon">🌟</div>
+                    <h4>Future Ready</h4>
+                    <p>Prepared for internships and entry-level positions in leading IT companies</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Goals Section -->
+        <section class="section">
+            <h2 class="section-title">🎯 Career Goals</h2>
+            <p style="color: #666; line-height: 1.9; font-size: 1.05em; margin-bottom: 20px;">
+                My primary goal is to secure an internship or entry-level position in a reputable IT company where I can apply my technical skills 
+                and gain practical experience in software development. I aim to work with innovative projects that challenge my technical abilities 
+                and allow me to contribute meaningfully.
+            </p>
+            <p style="color: #666; line-height: 1.9; font-size: 1.05em;">
+                In the long term, I aspire to grow as a proficient software engineer, master emerging technologies like AI and cloud computing, 
+                and eventually take on leadership roles where I can mentor junior developers and drive technological innovation in the organization.
+            </p>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container">
+        <section class="contact-section" id="contact">
+            <h2 class="section-title">📞 Get In Touch</h2>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <h4>📧 Email</h4>
+                    <p>shrutichautmal06@gmail.com</p>
+                </div>
+                <div class="contact-method">
+                    <h4>📱 Phone</h4>
+                    <p>+91 96570 95674</p>
+                </div>
+                <div class="contact-method">
+                    <h4>📍 Location</h4>
+                    <p>Shevgaon, Maharashtra, India</p>
+                </div>
+            </div>
+            <a href="mailto:shrutichautmal06@gmail.com" class="cta-button">Send Me an Email</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p style="font-size: 1.2em; font-weight: bold;">Shruti Manish Chautmal</p>
+            <p>B.Tech Student | Computer Science Enthusiast | Aspiring Software Engineer</p>
+            <div class="divider"></div>
+            <div class="footer-links">
+                <a href="mailto:shrutichautmal06@gmail.com">Email</a>
+                <a href="tel:9657095674">Call</a>
+                <a href="#home">Home</a>
+                <a href="#education">Education</a>
+            </div>
+            <div class="divider"></div>
+            <p>&copy; 2026 Shruti Manish Chautmal. All rights reserved.</p>
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
+                Eknathrao Dhakane Engineering College, Shevgaon, Maharashtra
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
